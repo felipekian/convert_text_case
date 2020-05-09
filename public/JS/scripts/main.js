@@ -1,5 +1,9 @@
-function emit_alerta(messagem) {
-    alert(messagem)
+
+function emitAlertCampoVazio() {
+    bootbox.alert({
+        message: "<h4>O campo está vazio!</h4>",
+        centerVertical: true
+    });
 }
 
 function setTextBox(text) {
@@ -7,15 +11,16 @@ function setTextBox(text) {
 }
 
 
-
 // BOTÃO UPPERCASE
 $("#btn_uppercase").click(() => {
 
     let text = $("#texto").val()
 
-    if (text.length == 0) 
-        emit_alerta("O campo está vazio.")
-    
+    if (text.length == 0) {
+        emitAlertCampoVazio()
+        return
+    }
+
     let textConvert = new TextConvert()
 
     setTextBox(textConvert.text_uppercase(text))
@@ -25,12 +30,14 @@ $("#btn_uppercase").click(() => {
 
 
 // BOTÃO LOWERCASE
-$("#btn_lowercase").click(()=>{
+$("#btn_lowercase").click(() => {
     let text = $("#texto").val()
 
-    if (text.length == 0) 
-        emit_alerta("O campo está vazio.")
-    
+    if (text.length == 0) {
+        emitAlertCampoVazio()
+        return
+    }
+
     let textConvert = new TextConvert()
 
     setTextBox(textConvert.text_lowerCase(text))
@@ -38,13 +45,16 @@ $("#btn_lowercase").click(()=>{
     return;
 });
 
+
 // BOTÃO ESTILO FRASE
-$("#btn_frase").click(()=>{
+$("#btn_frase").click(() => {
     let text = $("#texto").val()
 
-    if (text.length == 0) 
-        emit_alerta("O campo está vazio.")
-    
+    if (text.length == 0) {
+        emitAlertCampoVazio()
+        return
+    }
+
     let textConvert = new TextConvert()
 
     setTextBox(textConvert.text_Estilo_Frase(text))
@@ -54,12 +64,14 @@ $("#btn_frase").click(()=>{
 
 
 // BOTÃO LIMPAR ESCAPOS EM BRANCO
-$("#brn_clear_spaces").click(()=>{
+$("#brn_clear_spaces").click(() => {
     let text = $("#texto").val()
 
-    if (text.length == 0) 
-        emit_alerta("O campo está vazio.")
-    
+    if (text.length == 0) {
+        emitAlertCampoVazio()
+        return
+    }
+
     let textConvert = new TextConvert()
 
     setTextBox(textConvert.text_limpar_espacos(text))
@@ -69,12 +81,14 @@ $("#brn_clear_spaces").click(()=>{
 
 
 //BOTÃO PRIMEIRAS LETRA DE CADA NOME EM MAUISCULO
-$("#btn_primeira_maiusculas").click(()=>{
+$("#btn_primeira_maiusculas").click(() => {
     let text = $("#texto").val()
 
-    if (text.length == 0) 
-        emit_alerta("O campo está vazio.")
-    
+    if (text.length == 0) {
+        emitAlertCampoVazio()
+        return
+    }
+
     let textConvert = new TextConvert()
 
     setTextBox(textConvert.text_primeiras_maiusculas(text))
@@ -84,12 +98,14 @@ $("#btn_primeira_maiusculas").click(()=>{
 
 
 //BOTÃO ALTERNADO
-$("#btn-alternado").click(()=>{
+$("#btn-alternado").click(() => {
     let text = $("#texto").val()
 
-    if (text.length == 0) 
-        emit_alerta("O campo está vazio.")
-    
+    if (text.length == 0) {
+        emitAlertCampoVazio()
+        return
+    }
+
     let textConvert = new TextConvert()
 
     setTextBox(textConvert.text_alternado(text))
@@ -99,12 +115,14 @@ $("#btn-alternado").click(()=>{
 
 
 //BOTÃO ALTERNADO INVERTIDO
-$("#btn-alternado_invertido").click(()=>{
+$("#btn-alternado_invertido").click(() => {
     let text = $("#texto").val()
 
-    if (text.length == 0) 
-        emit_alerta("O campo está vazio.")
-    
+    if (text.length == 0) {
+        emitAlertCampoVazio()
+        return
+    }
+
     let textConvert = new TextConvert()
 
     setTextBox(textConvert.text_alternado_invertido(text))
@@ -114,44 +132,53 @@ $("#btn-alternado_invertido").click(()=>{
 
 
 //BOTÃO LIMPAR CAMPOS
-$("#btn_clear_text").click(()=>{
+$("#btn_clear_text").click(() => {
     $("#texto").val("")
     return;
 });
 
 
 //BOTÃO CONTAR PALAVRAS
-$("#btn_cont_palavras").click(()=>{
+$("#btn_cont_palavras").click(() => {
     let text = $("#texto").val()
 
-    if (text.length == 0) 
-        emit_alerta("O campo está vazio.")
-    
+    if (text.length == 0) {
+        emitAlertCampoVazio()
+        return
+    }
     let textConvert = new TextConvert()
 
-    alert(textConvert.text_cont_word(text))
+    bootbox.alert({
+        message: "<h4>Total de palavras: " + textConvert.text_cont_word(text) + "</h4>",
+        centerVertical: true
+    });
 
     return;
 });
 
 
 //BOTÃO CONTAR LETRA
-$("#btn_cont_letra").click(()=>{
+$("#btn_cont_letra").click(() => {
     let text = $("#texto").val()
 
-    if (text.length == 0) 
-        emit_alerta("O campo está vazio.")
-    
+    if (text.length == 0) {
+        emitAlertCampoVazio()
+        return
+    }
+
     let textConvert = new TextConvert()
 
-    alert(textConvert.text_cont_letter(text))
+    bootbox.alert({
+        message: "<h4>Total de caracteres: " + textConvert.text_cont_letter(text) + "</h4>",
+        centerVertical: true
+    });
 
     return;
 });
 
 
 //BOTÃO CONTAR LETRA
-$("#btn_copy").click(()=>{
+$("#btn_copy").click(() => {
     $("#texto").select()
     document.execCommand('copy');
     return;
@@ -159,12 +186,14 @@ $("#btn_copy").click(()=>{
 
 
 //BOTÃO INVERTER TEXTO
-$("#btn-inverter_texto").click(()=>{
+$("#btn-inverter_texto").click(() => {
     let text = $("#texto").val()
 
-    if (text.length == 0) 
-        emit_alerta("O campo está vazio.")
-    
+    if (text.length == 0) {
+        emitAlertCampoVazio()
+        return
+    }
+
     let textConvert = new TextConvert()
 
     setTextBox(textConvert.text_inverter(text))
@@ -174,13 +203,18 @@ $("#btn-inverter_texto").click(()=>{
 
 
 //BOTAO SUBSTITUIR
-$("#btn_substituir").click(()=>{
+$("#btn_substituir").click(() => {
     let text = $("#texto").val()
     let palavra_de = $("#text_de").val();
     let palavra_para = $("#text_para").val();
 
+    if (text.length == 0) {
+        emitAlertCampoVazio()
+        return
+    }
+
     let textConvert = new TextConvert()
-    
+
     setTextBox(textConvert.text_substituir(text, palavra_de, palavra_para))
 
 
@@ -190,3 +224,4 @@ $("#btn_substituir").click(()=>{
 
     return;
 });
+
